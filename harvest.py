@@ -28,8 +28,8 @@ class MelonType:
 
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
-        self
-        # Fill in the rest
+        self.code = new_code
+
 
 
 def make_melon_types():
