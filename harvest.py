@@ -38,7 +38,12 @@ def make_melon_types():
     casaba = MelonType("cas", 2003, "orange", False, False, "Casaba")
     crenshaw = MelonType('cren', 1996, 'green', False, False, "Crenshaw")
     yellow_watermelon = MelonType('yw', 2013, 'yellow', False, True, "Yellow Watermelon")
-    
+
+    musk_melon.pairings.append("mint")
+    casaba.pairings.append("strawberries")
+    casaba.pairings.append("mint")
+    crenshaw.pairings.append("prosciutto")
+    yellow_watermelon.pairings.append("ice cream")
     
     all_melon_types = [musk_melon, casaba, crenshaw, yellow_watermelon]
 
@@ -48,12 +53,7 @@ def make_melon_types():
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
    
-    melon_types[0].add_pairing("mint")
-    melon_types[1].add_pairing("strawberries")
-    melon_types[1].add_pairing("mint")
-    melon_types[2].add_pairing("prosciutto")
-    melon_types[3].add_pairing("ice cream")
-    
+
     for melon in melon_types:
         print(f"{melon.name} pairs with")
         for pairing in melon.pairings:
@@ -67,12 +67,16 @@ def make_melon_type_lookup(melon_types):
     
     for melon in melon_types:
        key = melon.code
-       attributes = [melon.first_harvest, melon.color, melon.is_seedless, melon.is_bestseller, melon.name]
-       melons[key] = attributes
-    
+       attributes = melon
+       melons[key] =  attributes
+             
     return melons
     # Fill in the rest
 
+# # {"musk": {"color": "green",
+#             "code": "musk"
+# }
+# }
 print(make_melon_type_lookup(make_melon_types()))
 ############
 # Part 2   #
@@ -84,15 +88,28 @@ class Melon:
 
     # Fill in the rest
     # Needs __init__ and is_sellable methods
+    def __init__(self, melon_type, shape_rating, color_rating, from_field, harvester):
+        self.melon_type = melon_type
+        self.shape_rating = shape_rating
+        self.color_rating = color_rating
+        self.from_field = from_field 
+        self.harvester = harvester
+
+    def is_sellable(self, shape_rating, color_rating, from_field):
+        if from_field != 3:
+            if self.shape_rating > 5 and self.color_rating > 5:
+                return True
+        return False
 
 
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
-
-    # Fill in the rest
-
+    yw = 
+    
+print(make_melons())
 
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
     # Fill in the rest
+   
